@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary">
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/img_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
