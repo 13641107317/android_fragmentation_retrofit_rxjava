@@ -1,6 +1,7 @@
 package com.example.fragmentation_rxjava_retrofit;
 
 import android.app.Application;
+import android.os.Handler;
 
 import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.helper.ExceptionHandler;
@@ -10,9 +11,18 @@ import me.yokeyword.fragmentation.helper.ExceptionHandler;
  */
 
 public class App extends Application {
+
+
+    private static App mContext;
+
+    private static Handler mMainThreadHandler;
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mContext = this;
+        mMainThreadHandler = new Handler();
         Fragmentation.builder()
                 // 设置 栈视图 模式为 （默认）悬浮球模式   SHAKE: 摇一摇唤出  NONE：隐藏， 仅在Debug环境生效
                 .stackViewMode(Fragmentation.BUBBLE)
@@ -30,6 +40,14 @@ public class App extends Application {
                 })
                 .install();
 
+    }
+
+    public static App getApplication() {
+        return mContext;
+    }
+
+    public static Handler getMainThreadHandler() {
+        return mMainThreadHandler;
     }
 
 }
