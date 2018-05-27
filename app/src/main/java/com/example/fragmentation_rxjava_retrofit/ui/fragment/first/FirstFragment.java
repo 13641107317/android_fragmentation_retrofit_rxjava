@@ -11,7 +11,7 @@ import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.first.child.FirstHomeFragment;
 
 /**
- * Created by mac on 2018/5/27.
+ * Created by wp on 2018/5/27.
  */
 
 public class FirstFragment extends BaseMainFragment {

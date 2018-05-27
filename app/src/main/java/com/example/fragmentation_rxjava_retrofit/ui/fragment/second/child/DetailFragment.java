@@ -15,7 +15,7 @@ import com.example.fragmentation_rxjava_retrofit.base.BaseBackFragment;
 
 
 /**
- * Created by YoKeyword on 16/2/3.
+ * Created by wp on 18/2/3.
  */
 public class DetailFragment extends BaseBackFragment {
     public static final String TAG = DetailFragment.class.getSimpleName();

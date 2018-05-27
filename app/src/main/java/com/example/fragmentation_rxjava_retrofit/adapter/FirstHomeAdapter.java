@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * Created by YoKeyword on 16/6/5.
+ * Created by wp on 18/6/5.
  */
 public class FirstHomeAdapter extends RecyclerView.Adapter<FirstHomeAdapter.VH> {
     private List<Article> mItems = new ArrayList<>();

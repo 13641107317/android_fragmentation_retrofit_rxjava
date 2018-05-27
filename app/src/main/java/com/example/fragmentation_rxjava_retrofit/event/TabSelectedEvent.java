@@ -1,7 +1,7 @@
 package com.example.fragmentation_rxjava_retrofit.event;
 
 /**
- * Created by YoKeyword on 16/6/5.
+ * Created by wp on 18/6/5.
  */
 public class TabSelectedEvent {
     public int position;

@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * 主页HomeFragment  Adapter
- * Created by YoKeyword on 16/2/1.
+ * Created by wp on 18/2/1.
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
     private List<Article> mItems = new ArrayList<>();

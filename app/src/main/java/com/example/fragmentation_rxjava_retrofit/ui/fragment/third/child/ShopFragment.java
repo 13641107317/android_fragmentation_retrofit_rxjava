@@ -18,7 +18,7 @@ import java.util.Arrays;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
- * Created by YoKeyword on 16/2/4.
+ * Created by wp on 18/2/4.
  */
 public class ShopFragment extends SupportFragment {
     public static final String TAG = ShopFragment.class.getSimpleName();

@@ -11,7 +11,7 @@ import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.second.child.ViewPagerFragment;
 
 /**
- * Created by YoKeyword on 16/6/3.
+ * Created by wp on 18/6/3.
  */
 public class SecondFragment extends BaseMainFragment {
 

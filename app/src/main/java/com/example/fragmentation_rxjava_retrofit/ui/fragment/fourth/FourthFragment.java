@@ -13,7 +13,7 @@ import com.example.fragmentation_rxjava_retrofit.ui.fragment.fourth.child.Avatar
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.fourth.child.MeFragment;
 
 /**
- * Created by YoKeyword on 16/6/3.
+ * Created by wp on 18/6/3.
  */
 public class FourthFragment extends BaseMainFragment {
     private Toolbar mToolbar;

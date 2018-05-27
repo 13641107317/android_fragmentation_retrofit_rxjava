@@ -16,7 +16,7 @@ import com.example.fragmentation_rxjava_retrofit.base.BaseBackFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.CycleFragment;
 
 /**
- * Created by YoKeyword on 16/6/5.
+ * Created by wp on 18/6/5.
  */
 public class FirstDetailFragment extends BaseBackFragment {
     private static final String ARG_ITEM = "arg_item";

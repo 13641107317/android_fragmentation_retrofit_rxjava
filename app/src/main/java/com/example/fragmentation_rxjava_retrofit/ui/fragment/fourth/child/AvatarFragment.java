@@ -11,7 +11,7 @@ import com.example.fragmentation_rxjava_retrofit.R;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
- * Created by YoKeyword on 16/6/6.
+ * Created by wp on 18/6/6.
  */
 public class AvatarFragment extends SupportFragment {
 

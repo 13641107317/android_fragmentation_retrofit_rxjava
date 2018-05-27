@@ -13,7 +13,7 @@ import com.example.fragmentation_rxjava_retrofit.ui.fragment.fourth.FourthFragme
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
- * Created by YoKeyword on 16/6/6.
+ * Created by wp on 18/6/6.
  */
 public class MeFragment extends SupportFragment {
     private TextView mTvBtnSettings;

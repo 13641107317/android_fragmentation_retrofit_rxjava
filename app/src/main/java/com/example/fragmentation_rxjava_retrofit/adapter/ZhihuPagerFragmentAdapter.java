@@ -8,7 +8,7 @@ import com.example.fragmentation_rxjava_retrofit.ui.fragment.second.child.childp
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.second.child.childpager.OtherPagerFragment;
 
 /**
- * Created by YoKeyword on 16/6/5.
+ * Created by wp on 18/6/5.
  */
 public class ZhihuPagerFragmentAdapter extends FragmentPagerAdapter {
     private String[] mTitles;

@@ -18,7 +18,7 @@ import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
- * Created by YoKeyword on 16/2/9.
+ * Created by wp on 18/2/9.
  */
 public class ContentFragment extends SupportFragment {
     private static final String ARG_MENU = "arg_menu";
