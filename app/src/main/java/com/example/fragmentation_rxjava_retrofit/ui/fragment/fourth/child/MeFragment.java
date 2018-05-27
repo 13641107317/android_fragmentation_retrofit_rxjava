@@ -30,7 +30,7 @@ public class MeFragment extends SupportFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.zhihu_fragment_fourth_me, container, false);
+        View view = inflater.inflate(R.layout.fragment_fourth_me, container, false);
         initView(view);
         return view;
     }

@@ -37,7 +37,7 @@ public class OtherPagerFragment extends SupportFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.zhihu_fragment_second_pager_other, container, false);
+        View view = inflater.inflate(R.layout.fragment_second_pager_other, container, false);
         initView(view);
         return view;
     }

@@ -31,7 +31,7 @@ public class FourthFragment extends BaseMainFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.zhihu_fragment_fourth, container, false);
+        mView = inflater.inflate(R.layout.fragment_fourth, container, false);
         return mView;
     }
 
