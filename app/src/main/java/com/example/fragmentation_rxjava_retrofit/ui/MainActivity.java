@@ -1,11 +1,14 @@
 package com.example.fragmentation_rxjava_retrofit.ui;
 
+import android.Manifest;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.Toolbar;
 
 import com.example.fragmentation_rxjava_retrofit.R;
+import com.example.fragmentation_rxjava_retrofit.base.BaseActivity;
 import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
+import com.example.fragmentation_rxjava_retrofit.base.PermissionListener;
 import com.example.fragmentation_rxjava_retrofit.event.TabSelectedEvent;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.first.FirstFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.first.child.FirstHomeFragment;
@@ -18,24 +21,34 @@ import com.example.fragmentation_rxjava_retrofit.ui.fragment.third.child.ShopFra
 import com.example.fragmentation_rxjava_retrofit.ui.view.BottomBar;
 import com.example.fragmentation_rxjava_retrofit.ui.view.BottomBarTab;
 
+import java.util.List;
+
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
-import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class MainActivity extends SupportActivity implements BaseMainFragment.OnBackToFirstListener {
+public class MainActivity extends BaseActivity implements BaseMainFragment.OnBackToFirstListener,
+        PermissionListener {
     public static final int FIRST = 0;
     public static final int SECOND = 1;
     public static final int THIRD = 2;
     public static final int FOURTH = 3;
-
     private SupportFragment[] mFragments = new SupportFragment[4];
-
     private BottomBar mBottomBar;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+
+    }
+
+    @Override
+    protected void afterCreate(Bundle savedInstanceState) {
+        //toolBar
+        Toolbar toolBar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
+        //权限检查
+        requestPermissions(new String[]{Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE}, this);
 
         SupportFragment firstFragment = findFragment(FirstFragment.class);
         if (firstFragment == null) {
@@ -51,7 +64,6 @@ public class MainActivity extends SupportActivity implements BaseMainFragment.On
                     mFragments[FOURTH]);
         } else {
             // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
-
             // 这里我们需要拿到mFragments的引用
             mFragments[FIRST] = firstFragment;
             mFragments[SECOND] = findFragment(SecondFragment.class);
@@ -90,8 +102,7 @@ public class MainActivity extends SupportActivity implements BaseMainFragment.On
                 if (count > 1) {
                     if (currentFragment instanceof FirstFragment) {
                         currentFragment.popToChild(FirstHomeFragment.class, false);
-                    }
-                    else if (currentFragment instanceof SecondFragment) {
+                    } else if (currentFragment instanceof SecondFragment) {
                         currentFragment.popToChild(ViewPagerFragment.class, false);
                     } else if (currentFragment instanceof ThirdFragment) {
                         currentFragment.popToChild(ShopFragment.class, false);
@@ -100,7 +111,6 @@ public class MainActivity extends SupportActivity implements BaseMainFragment.On
                     }
                     return;
                 }
-
 
                 // 这里推荐使用EventBus来实现 -> 解耦
                 if (count == 1) {
@@ -126,15 +136,15 @@ public class MainActivity extends SupportActivity implements BaseMainFragment.On
         mBottomBar.setCurrentItem(0);
     }
 
-    /**
-     * 这里暂没实现,忽略
-     */
-//    @Subscribe
-//    public void onHiddenBottombarEvent(boolean hidden) {
-//        if (hidden) {
-//            mBottomBar.hide();
-//        } else {
-//            mBottomBar.show();
-//        }
-//    }
+    //权限申请成功
+    @Override
+    public void onGranted() {
+
+    }
+
+    //权限申请失败
+    @Override
+    public void onDenied(List<String> deniedPermissions) {
+
+    }
 }
