@@ -43,9 +43,9 @@ public class MainActivity extends BaseActivity implements BaseMainFragment.OnBac
 
     @Override
     protected void afterCreate(Bundle savedInstanceState) {
-        //toolBar
-        Toolbar toolBar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolBar);
+//        //toolBar
+//        Toolbar toolBar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolBar);
         //权限检查
         requestPermissions(new String[]{Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE}, this);

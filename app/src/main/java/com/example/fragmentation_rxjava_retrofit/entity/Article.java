@@ -39,6 +39,15 @@ public class Article implements Parcelable{
         }
     };
 
+    @Override
+    public String toString() {
+        return "Article{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", imgRes=" + imgRes +
+                '}';
+    }
+
     public String getTitle() {
         return title;
     }

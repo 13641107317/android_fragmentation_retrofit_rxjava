@@ -6,9 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.fragmentation_rxjava_retrofit.R;
 import com.example.fragmentation_rxjava_retrofit.adapter.HomeAdapter;
@@ -31,7 +29,8 @@ import me.yokeyword.fragmentation.SupportFragment;
 /**
  * Created by wp on 18/6/3.
  */
-public class FirstPagerFragment extends BaseMainFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class SecondPagerFragment extends BaseMainFragment implements SwipeRefreshLayout.OnRefreshListener {
+    private static final String ARG_TITLE = "arg_title";
     @BindView(R.id.recy)
     RecyclerView mRecy;
     @BindView(R.id.refresh_layout)
@@ -42,10 +41,11 @@ public class FirstPagerFragment extends BaseMainFragment implements SwipeRefresh
     private String[] mTitles;
     private String[] mContents;
 
-    public static FirstPagerFragment newInstance() {
+    public static SecondPagerFragment newInstance(String title) {
 
         Bundle args = new Bundle();
-        FirstPagerFragment fragment = new FirstPagerFragment();
+        args.putString(ARG_TITLE,title);
+        SecondPagerFragment fragment = new SecondPagerFragment();
         fragment.setArguments(args);
         return fragment;
     }

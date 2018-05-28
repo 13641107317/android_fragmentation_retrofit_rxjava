@@ -1,6 +1,7 @@
 package com.example.fragmentation_rxjava_retrofit.ui.fragment.third.child;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -9,21 +10,23 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.fragmentation_rxjava_retrofit.R;
+import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.third.child.child.ContentFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.third.child.child.MenuListFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by wp on 18/2/4.
  */
-public class ShopFragment extends SupportFragment {
+public class ShopFragment extends BaseMainFragment {
     public static final String TAG = ShopFragment.class.getSimpleName();
-
-    private Toolbar mToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     public static ShopFragment newInstance() {
         Bundle args = new Bundle();
@@ -33,16 +36,23 @@ public class ShopFragment extends SupportFragment {
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shop, container, false);
-        initView(view, savedInstanceState);
-        return view;
+    public Object setLayout() {
+        return R.layout.fragment_shop;
     }
 
-    private void initView(View view, Bundle savedInstanceState) {
-        mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        initView();
+    }
+
+    private void initView() {
 
         mToolbar.setTitle(R.string.shop);
 
@@ -51,7 +61,8 @@ public class ShopFragment extends SupportFragment {
             MenuListFragment menuListFragment = MenuListFragment.newInstance(listMenus);
             loadRootFragment(R.id.fl_list_container, menuListFragment);
             // false:  不加入回退栈;  false: 不显示动画
-            loadRootFragment(R.id.fl_content_container, ContentFragment.newInstance(listMenus.get(0)), false, false);
+            loadRootFragment(R.id.fl_content_container, ContentFragment.newInstance(listMenus.get(0)),
+                    false, false);
         }
     }
 

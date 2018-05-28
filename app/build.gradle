@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+//apply plugin: 'com.android.library'
+//apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
@@ -36,4 +37,7 @@ dependencies {
     compile 'me.yokeyword:eventbus-activity-scope:1.1.0'
 // Your EventBus's version
     compile 'org.greenrobot:eventbus:3.0.0'
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

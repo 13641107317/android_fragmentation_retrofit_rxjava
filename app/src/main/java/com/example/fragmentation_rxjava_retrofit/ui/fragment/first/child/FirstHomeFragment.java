@@ -2,6 +2,7 @@ package com.example.fragmentation_rxjava_retrofit.ui.fragment.first.child;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.fragmentation_rxjava_retrofit.R;
 import com.example.fragmentation_rxjava_retrofit.adapter.FirstHomeAdapter;
+import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.entity.Article;
 import com.example.fragmentation_rxjava_retrofit.event.TabSelectedEvent;
 import com.example.fragmentation_rxjava_retrofit.helper.DetailTransition;
@@ -27,6 +29,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 import me.yokeyword.fragmentation.SupportFragment;
 

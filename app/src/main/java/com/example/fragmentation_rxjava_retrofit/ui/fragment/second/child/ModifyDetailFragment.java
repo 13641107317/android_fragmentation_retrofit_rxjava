@@ -1,7 +1,10 @@
 package com.example.fragmentation_rxjava_retrofit.ui.fragment.second.child;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +15,15 @@ import android.widget.Toast;
 
 import com.example.fragmentation_rxjava_retrofit.R;
 import com.example.fragmentation_rxjava_retrofit.base.BaseBackFragment;
+import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.CycleFragment;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
+/**
+ * Created by wp on 18/2/7.
+ */
 /**
  * Created by wp on 18/2/7.
  */

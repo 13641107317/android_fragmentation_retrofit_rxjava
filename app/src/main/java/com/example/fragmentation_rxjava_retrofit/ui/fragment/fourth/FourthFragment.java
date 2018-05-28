@@ -1,6 +1,7 @@
 package com.example.fragmentation_rxjava_retrofit.ui.fragment.fourth;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -12,38 +13,41 @@ import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.fourth.child.AvatarFragment;
 import com.example.fragmentation_rxjava_retrofit.ui.fragment.fourth.child.MeFragment;
 
+import butterknife.BindView;
+
 /**
  * Created by wp on 18/6/3.
  */
 public class FourthFragment extends BaseMainFragment {
-    private Toolbar mToolbar;
-    private View mView;
+   @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     public static FourthFragment newInstance() {
-
         Bundle args = new Bundle();
-
         FourthFragment fragment = new FourthFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_fourth, container, false);
-        return mView;
+    public Object setLayout() {
+        return R.layout.fragment_fourth;
     }
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+
+    }
+
 
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
+        mToolbar.setTitle(R.string.me);
         if (findChildFragment(AvatarFragment.class) == null) {
             loadFragment();
         }
 
-        mToolbar = (Toolbar) mView.findViewById(R.id.toolbar);
-        mToolbar.setTitle(R.string.me);
     }
 
     private void loadFragment() {
