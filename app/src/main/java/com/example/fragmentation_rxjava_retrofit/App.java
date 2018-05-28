@@ -3,6 +3,8 @@ package com.example.fragmentation_rxjava_retrofit;
 import android.app.Application;
 import android.os.Handler;
 
+import com.vondear.rxtools.RxTool;
+
 import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.helper.ExceptionHandler;
 
@@ -21,6 +23,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
+        RxTool.init(this);
         mContext = this;
         mMainThreadHandler = new Handler();
         Fragmentation.builder()

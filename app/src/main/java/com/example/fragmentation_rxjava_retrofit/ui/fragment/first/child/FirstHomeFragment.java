@@ -1,8 +1,8 @@
 package com.example.fragmentation_rxjava_retrofit.ui.fragment.first.child;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,19 +17,23 @@ import android.widget.Toast;
 
 import com.example.fragmentation_rxjava_retrofit.R;
 import com.example.fragmentation_rxjava_retrofit.adapter.FirstHomeAdapter;
-import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
 import com.example.fragmentation_rxjava_retrofit.entity.Article;
 import com.example.fragmentation_rxjava_retrofit.event.TabSelectedEvent;
 import com.example.fragmentation_rxjava_retrofit.helper.DetailTransition;
 import com.example.fragmentation_rxjava_retrofit.listener.OnItemClickListener;
 import com.example.fragmentation_rxjava_retrofit.ui.MainActivity;
+import com.vondear.rxtools.RxTool;
+import com.vondear.rxtools.interfaces.OnDelayListener;
+import com.vondear.rxtools.view.progressing.SpinKitView;
+import com.vondear.rxtools.view.progressing.SpriteFactory;
+import com.vondear.rxtools.view.progressing.Style;
+import com.vondear.rxtools.view.progressing.sprite.Sprite;
 
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -44,7 +48,7 @@ public class FirstHomeFragment extends SupportFragment implements SwipeRefreshLa
     private FloatingActionButton mFab;
 
     private FirstHomeAdapter mAdapter;
-
+    SpinKitView spinKitView;
     private boolean mInAtTop = true;
     private int mScrollTotal;
 
@@ -79,13 +83,34 @@ public class FirstHomeFragment extends SupportFragment implements SwipeRefreshLa
         return view;
     }
 
+    @SuppressLint("ResourceAsColor")
     private void initView(View view) {
+        spinKitView = (SpinKitView) view.findViewById(R.id.spin_kit);
         mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
         mRecy = (RecyclerView) view.findViewById(R.id.recy);
         mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
         mFab = (FloatingActionButton) view.findViewById(R.id.fab);
 
         mToolbar.setTitle(R.string.home);
+
+
+        final Sprite drawable = SpriteFactory.create(Style.MULTIPLE_PULSE_RING);
+        spinKitView.setIndeterminateDrawable(drawable);
+
+
+
+
+        RxTool.delayToDo(2000, new OnDelayListener() {
+            @Override
+            public void doSomething() {
+
+                spinKitView.setIndeterminateDrawable(drawable);
+                spinKitView.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
+
 
         mRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         mRefreshLayout.setOnRefreshListener(this);
