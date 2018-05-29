@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android_fragmentation_retrofit_rxjava.iml" filepath="$PROJECT_DIR$/android_fragmentation_retrofit_rxjava.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android_project.iml" filepath="$PROJECT_DIR$/android_project.iml" />
+      <module fileurl="file://C:\Users\wp\Desktop\2018.5.15\android_fragmentation_retrofit_rxjava\android_project.iml" filepath="C:\Users\wp\Desktop\2018.5.15\android_fragmentation_retrofit_rxjava\android_project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

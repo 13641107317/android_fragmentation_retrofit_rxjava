@@ -1,6 +1,7 @@
 package com.example.fragmentation_rxjava_retrofit.ui.fragment.first.child;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,10 @@ import android.transition.Fade;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fragmentation_rxjava_retrofit.R;
@@ -24,6 +29,8 @@ import com.example.fragmentation_rxjava_retrofit.listener.OnItemClickListener;
 import com.example.fragmentation_rxjava_retrofit.ui.MainActivity;
 import com.vondear.rxtools.RxTool;
 import com.vondear.rxtools.interfaces.OnDelayListener;
+import com.vondear.rxtools.view.dialog.RxDialog;
+import com.vondear.rxtools.view.dialog.RxDialogLoading;
 import com.vondear.rxtools.view.progressing.SpinKitView;
 import com.vondear.rxtools.view.progressing.SpriteFactory;
 import com.vondear.rxtools.view.progressing.Style;
@@ -90,25 +97,8 @@ public class FirstHomeFragment extends SupportFragment implements SwipeRefreshLa
         mRecy = (RecyclerView) view.findViewById(R.id.recy);
         mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
         mFab = (FloatingActionButton) view.findViewById(R.id.fab);
-
         mToolbar.setTitle(R.string.home);
 
-
-        final Sprite drawable = SpriteFactory.create(Style.MULTIPLE_PULSE_RING);
-        spinKitView.setIndeterminateDrawable(drawable);
-
-
-
-
-        RxTool.delayToDo(2000, new OnDelayListener() {
-            @Override
-            public void doSomething() {
-
-                spinKitView.setIndeterminateDrawable(drawable);
-                spinKitView.setVisibility(View.INVISIBLE);
-
-            }
-        });
 
 
 
