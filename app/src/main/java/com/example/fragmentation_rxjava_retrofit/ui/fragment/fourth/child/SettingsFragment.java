@@ -10,6 +10,13 @@ import android.view.ViewGroup;
 
 import com.example.fragmentation_rxjava_retrofit.R;
 import com.example.fragmentation_rxjava_retrofit.base.BaseMainFragment;
+import com.vondear.rxtools.RxTool;
+import com.vondear.rxtools.interfaces.OnDelayListener;
+import com.vondear.rxtools.view.dialog.RxDialogLoading;
+import com.vondear.rxtools.view.progressing.SpinKitView;
+import com.vondear.rxtools.view.progressing.SpriteFactory;
+import com.vondear.rxtools.view.progressing.Style;
+import com.vondear.rxtools.view.progressing.sprite.Sprite;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -42,7 +49,25 @@ public class SettingsFragment extends BaseMainFragment {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+        /**
+         * dialog和loading配合使用 透明网络请求loading
+         */
 
+        final RxDialogLoading rxDialog = new RxDialogLoading(getContext(), R.style.Translucent_NoTitle);
+        View view1 = rootView.inflate(getContext(), R.layout.spin_kit, null);
+        SpinKitView loading = view1.findViewById(R.id.spin_kit);
+        final Sprite sprite = SpriteFactory.create(Style.CHASING_DOTS);
+        loading.setIndeterminateDrawable(sprite);
+        rxDialog.setCancelable(false);
+        rxDialog.setContentView(view1);
+        rxDialog.show();
+        RxTool.delayToDo(2000, new OnDelayListener() {
+            @Override
+            public void doSomething() {
+                rxDialog.dismiss();
+                rxDialog.cancel();
+            }
+        });
     }
 
     @Override
